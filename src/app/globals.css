@@ -1,0 +1,330 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
+  .dark {
+    --background: 204 10% 4%;
+    --foreground: 30 43% 88%;
+    --card: 204 10% 7%;
+    --card-foreground: 30 43% 88%;
+    --popover: 204 10% 4%;
+    --popover-foreground: 30 43% 88%;
+    --primary: 30 43% 88%;
+    --primary-foreground: 204 10% 4%;
+    --secondary: 204 10% 10%;
+    --secondary-foreground: 30 43% 88%;
+    --muted: 204 10% 10%;
+    --muted-foreground: 30 43% 75%;
+    --accent: 205 90% 66%;
+    --accent-foreground: 204 10% 4%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 30 43% 88%;
+    --border: 204 10% 15%;
+    --input: 204 10% 15%;
+    --ring: 205 90% 66%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .gradient-card::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: calc(var(--radius) + 1px);
+    background: radial-gradient(400px circle at var(--mouse-x) var(--mouse-y),
+      hsl(var(--accent) / 0.8),
+      transparent 80%
+    );
+    will-change: background;
+    transition: background 0.3s ease-out;
+    z-index: -1;
+  }
+}
+
+@keyframes gradient-move {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@tailwind utilities {
+  @keyframes text-glow {
+    0% {
+      text-shadow: 0 0 5px hsl(var(--primary) / 0.2), 0 0 10px hsl(var(--primary) / 0.2), 0 0 20px hsl(var(--primary) / 0.2);
+    }
+    50% {
+      text-shadow: 0 0 10px hsl(var(--primary) / 0.4), 0 0 20px hsl(var(--primary) / 0.4), 0 0 40px hsl(var(--primary) / 0.4);
+    }
+    100% {
+      text-shadow: 0 0 5px hsl(var(--primary) / 0.2), 0 0 10px hsl(var(--primary) / 0.2), 0 0 20px hsl(var(--primary) / 0.2);
+    }
+  }
+  .animate-text-glow {
+    animation: text-glow 4s ease-in-out infinite;
+  }
+
+  @keyframes icon-glow {
+    0% {
+      filter: drop-shadow(0 0 2px hsl(var(--primary) / 0.2));
+    }
+    50% {
+      filter: drop-shadow(0 0 6px hsl(var(--primary) / 0.6));
+    }
+    100% {
+      filter: drop-shadow(0 0 2px hsl(var(--primary) / 0.2));
+    }
+  }
+  .animate-icon-glow {
+    animation: icon-glow 3s ease-in-out infinite;
+  }
+
+  @keyframes shadow-pulse {
+    0% { 
+      box-shadow: 0 0 20px -2px hsl(var(--primary) / 0.1);
+    }
+    50% { 
+      box-shadow: 0 0 20px -2px hsl(var(--primary) / 0.4);
+    }
+    100% { 
+      box-shadow: 0 0 20px -2px hsl(var(--primary) / 0.1);
+    }
+  }
+  .animate-shadow-pulse {
+    animation: shadow-pulse 5s ease-in-out infinite alternate;
+  }
+  
+  @keyframes slide-in-from-bottom {
+    0% {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .animate-slide-in-from-bottom {
+    animation: slide-in-from-bottom 1s ease-out forwards;
+  }
+
+  .glow-gradient-animated {
+    position: absolute;
+    inset: 0.25rem 0.5rem;
+    z-index: -10;
+    border-radius: 1rem;
+    filter: blur(24px);
+    opacity: 0.6;
+    pointer-events: none;
+    background: linear-gradient(90deg, #fde68a, #fb923c, #f472b6, #fde68a);
+    background-size: 200% 200%;
+    animation: gradient-move 4s ease-in-out infinite;
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { filter: drop-shadow(0 0 12px rgba(255,186,57,0.7)); }
+  50% { filter: drop-shadow(0 0 18px rgba(255,186,57,1)); }
+}
+.animate-glow-pulse {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+.flipper {
+  perspective: 1000px;
+}
+.flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+}
+.flipper:hover .flip-inner {
+  transform: rotateY(180deg);
+}
+.flip-front, .flip-back {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+.flip-back {
+  transform: rotateY(180deg);
+}
+
+@keyframes phone-ring {
+  0% { transform: rotate(0deg); }
+  10% { transform: rotate(-15deg); }
+  20% { transform: rotate(15deg); }
+  30% { transform: rotate(-10deg); }
+  40% { transform: rotate(10deg); }
+  50% { transform: rotate(-6deg); }
+  60% { transform: rotate(6deg); }
+  70% { transform: rotate(-3deg); }
+  80% { transform: rotate(3deg); }
+  85%, 100% { transform: rotate(0deg); }
+}
+.animate-phone-ring {
+  animation: phone-ring 1s linear infinite;
+}
+
+@keyframes mail-send {
+  0% { transform: translateY(0) scale(1); opacity: 1; }
+  20% { transform: translateY(-6px) scale(1.05); }
+  40% { transform: translateY(-12px) scale(0.95); }
+  60% { transform: translateY(-18px) scale(1.1); opacity: 1; }
+  80% { transform: translateY(-24px) scale(0.9); opacity: 0.7; }
+  85%, 100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+.animate-mail-send {
+  animation: mail-send 2s cubic-bezier(0.4,0,0.2,1) infinite;
+}
+
+@keyframes mail-bounce {
+  0%   { transform: translateY(0); }
+  20%  { transform: translateY(-8px); }
+  40%  { transform: translateY(0); }
+  60%  { transform: translateY(-4px); }
+  80%  { transform: translateY(0); }
+  100% { transform: translateY(0); }
+}
+.animate-mail-bounce {
+  animation: mail-bounce 1.2s cubic-bezier(0.4,0,0.2,1) infinite;
+}
+
+@keyframes telegram-fly {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  40% {
+    transform: translate(20px, -20px) scale(0.7);
+    opacity: 0;
+  }
+  41% {
+    transform: translate(-20px, 20px) scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+}
+.animate-telegram-fly {
+  animation: telegram-fly 3s cubic-bezier(0.4,0,0.2,1) infinite;
+}
+
+.animated-gradient-border {
+  background: linear-gradient(90deg, #FFE5B4, #FFB26B, #FFA552, #FF7F5C, #FF5C57, #FFBB33, #FFD369, #FF9A8B, #FFD8A9, #FF8C61, #FFE5B4);
+  background-size: 800% 800%;
+  animation: border-gradient-move 6s linear infinite;
+  border-radius: 0.5rem;
+  display: inline-block;
+}
+@keyframes border-gradient-move {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+@keyframes gradient-text-move {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+.animate-gradient-text {
+  background-size: 200% 200%;
+  animation: gradient-text-move 3s linear infinite;
+}
+
+.animate-gradient-hue {
+  filter: hue-rotate(0deg);
+  animation: gradient-hue-rotate 4s linear infinite;
+}
+@keyframes gradient-hue-rotate {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
+.border-gradient-univ {
+  border-image: linear-gradient(90deg, #FFD36933, #FF8C6133, #FFB26B33) 1;
+}
+
+@keyframes certificate-fade-in {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+.animate-certificate-fade-in {
+  animation: certificate-fade-in 0.4s cubic-bezier(0.4,0,0.2,1) forwards;
+}
+
+@keyframes smile-change {
+  0% { content: ":("; }
+  50% { content: ":|"; }
+  100% { content: ":)"; }
+}
+.animate-smile-change {
+  animation: smile-change 3s ease-in-out infinite;
+}
+/* Альтернативний підхід через CSS псевдоелементи */
+.animate-smile-change::after {
+  content: ":(";
+  animation: smile-change 3s ease-in-out infinite;
+}
+
+@keyframes mouth-morph {
+  0% { d: path("M8 16C8 16 10 14 12 14S16 16 16 16"); }
+  100% { d: path("M8 16C8 16 10 18 12 18S16 16 16 16"); }
+}
+.animate-mouth-morph {
+  animation: mouth-morph 3s ease-in-out forwards;
+}
