@@ -19,13 +19,13 @@ export function MyBackgroundSection() {
                     <div className="grid grid-cols-2 gap-8 justify-center items-stretch mb-10">
                       <div className="relative flex flex-col items-center rounded-xl border border-muted/40 bg-card px-4 py-4 group shadow-lg transition-all w-64 h-64 hover:-translate-y-2 hover:shadow-2xl hover:z-10">
                         <div className="pointer-events-none absolute inset-0 z-0 rounded-xl opacity-0 group-hover:opacity-100 transition duration-300" style={{boxShadow: '0 0 32px 8px #2563eb55'}} />
-                        <img src="/KPI_shield.svg" alt="KPI" className="h-16 w-auto grayscale group-hover:grayscale-0 transition duration-300" />
+                        <img src="KPI_shield.svg" alt="KPI" className="h-16 w-auto grayscale group-hover:grayscale-0 transition duration-300" />
                         <span className="mt-2 text-xs text-muted-foreground font-semibold">KPI</span>
                         <span className="mt-1 text-xs text-muted-foreground block max-w-[180px] text-justify" style={{textAlignLast: 'left'}}>This is my home university, where I have already studied for five years and continue my education. It has given me a strong technical foundation, a passion for technology, and the principles of a structured approach to problem-solving.</span>
                       </div>
                       <div className="relative flex flex-col items-center rounded-xl border border-muted/40 bg-card px-4 py-4 group shadow-lg transition-all w-64 h-64 hover:-translate-y-2 hover:shadow-2xl hover:z-10">
                         <div className="pointer-events-none absolute inset-0 z-0 rounded-xl opacity-0 group-hover:opacity-100 transition duration-300" style={{boxShadow: '0 0 32px 8px #b91c1c55'}} />
-                        <img src="/lawknu-logo.svg" alt="KNU" className="h-16 w-auto grayscale group-hover:grayscale-0 transition duration-300" />
+                        <img src="lawknu-logo.svg" alt="KNU" className="h-16 w-auto grayscale group-hover:grayscale-0 transition duration-300" />
                         <span className="mt-2 text-xs text-muted-foreground font-semibold">KNU</span>
                         <span className="mt-1 text-xs text-muted-foreground block max-w-[180px] text-justify" style={{textAlignLast: 'left'}}>Studying at this university is a symbol of victory for me — a confirmation of the saying that it's never too late to learn and become better.</span>
                       </div>
@@ -62,7 +62,7 @@ function PopoverCertificate() {
       {show && (
         <span className="absolute left-1/2 z-20 mt-2 w-64 -translate-x-1/2 rounded-lg shadow-xl bg-transparent p-2 animate-fade-in">
           <img
-            src="/Andrii.jpg"
+            src="Andrii.jpg"
             alt="Certificate preview"
             className="w-full h-auto rounded transition-all duration-300 opacity-0 scale-95 animate-certificate-fade-in"
             style={{maxHeight: '320px', objectFit: 'contain'}}

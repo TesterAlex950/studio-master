@@ -34,17 +34,17 @@ export function HeroSection() {
               <div className="absolute -bottom-2">
                 <a href="#about">
                   <div className="h-16 w-16 animate-chevron-gradient-svg flex items-center justify-center">
-                    <svg
+                  <svg
                       className="h-12 w-12"
-                      viewBox="0 0 24 24"
-                      fill="none"
+                    viewBox="0 0 24 24"
+                    fill="none"
                       stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <polyline points="6 9 12 15 18 9" />
-                    </svg>
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <polyline points="6 9 12 15 18 9" />
+                  </svg>
                   </div>
                 </a>
               </div>
