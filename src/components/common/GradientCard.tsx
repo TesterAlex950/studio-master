@@ -1,7 +1,7 @@
 'use client';
 
 import { cn } from '@/lib/utils';
-import React, { useRef, useEffect, type ReactNode } from 'react';
+import { useRef, useEffect, useCallback, type ReactNode } from 'react';
 
 interface GradientCardProps {
   children: ReactNode;
@@ -11,25 +11,25 @@ interface GradientCardProps {
 export function GradientCard({ children, className }: GradientCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  const handleMouseMove = useCallback((e: MouseEvent) => {
     const card = cardRef.current;
     if (!card) return;
+    
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
 
-    const handleMouseMove = (e: MouseEvent) => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
+    card.style.setProperty('--mouse-x', `${x}px`);
+    card.style.setProperty('--mouse-y', `${y}px`);
+  }, []);
 
-      card.style.setProperty('--mouse-x', `${x}px`);
-      card.style.setProperty('--mouse-y', `${y}px`);
-    };
-
-    document.addEventListener('mousemove', handleMouseMove);
+  useEffect(() => {
+    document.addEventListener('mousemove', handleMouseMove, { passive: true });
 
     return () => {
       document.removeEventListener('mousemove', handleMouseMove);
     };
-  }, []);
+  }, [handleMouseMove]);
 
   return (
     <div ref={cardRef} className={cn('relative gradient-card rounded-lg', className)}>

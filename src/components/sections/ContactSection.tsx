@@ -1,9 +1,9 @@
 'use client';
 
-import { Mail, Phone, Send } from 'lucide-react';
+import { Mail, Phone } from 'lucide-react';
 import { GradientCard } from '../common/GradientCard';
 import { CardContent } from '../ui/card';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 export function ContactSection() {
   const [phoneAnim, setPhoneAnim] = useState("");
@@ -73,11 +73,11 @@ export function ContactSection() {
                   >
                     <defs>
                       <linearGradient id="mail-gradient" x1="0" y1="0" x2="1" y2="0">
-                        <stop offset="0%" stop-color="#FFE5B4">
-                          <animate attributeName="stop-color" values="#FFE5B4;#FFB26B;#FFA552;#FF7F5C;#FF5C57;#FFBB33;#FFD369;#FF9A8B;#FFD8A9;#FF8C61;#FFE5B4" dur="3s" repeatCount="indefinite" />
+                        <stop offset="0%" stopColor="#FFE5B4">
+                          <animate attributeName="stopColor" values="#FFE5B4;#FFB26B;#FFA552;#FF7F5C;#FF5C57;#FFBB33;#FFD369;#FF9A8B;#FFD8A9;#FF8C61;#FFE5B4" dur="3s" repeatCount="indefinite" />
                         </stop>
-                        <stop offset="100%" stop-color="#FF8C61">
-                          <animate attributeName="stop-color" values="#FF8C61;#FFE5B4;#FFB26B;#FFA552;#FF7F5C;#FF5C57;#FFBB33;#FFD369;#FF9A8B;#FFD8A9;#FF8C61" dur="3s" repeatCount="indefinite" />
+                        <stop offset="100%" stopColor="#FF8C61">
+                          <animate attributeName="stopColor" values="#FF8C61;#FFE5B4;#FFB26B;#FFA552;#FF7F5C;#FF5C57;#FFBB33;#FFD369;#FF9A8B;#FFD8A9;#FF8C61" dur="3s" repeatCount="indefinite" />
                         </stop>
                       </linearGradient>
                     </defs>
@@ -111,11 +111,11 @@ export function ContactSection() {
                   >
                     <defs>
                       <linearGradient id="phone-gradient" x1="0" y1="0" x2="1" y2="0">
-                        <stop offset="0%" stop-color="#FFE5B4">
-                          <animate attributeName="stop-color" values="#FFE5B4;#FFB26B;#FFA552;#FF7F5C;#FF5C57;#FFBB33;#FFD369;#FF9A8B;#FFD8A9;#FF8C61;#FFE5B4" dur="3s" repeatCount="indefinite" />
+                        <stop offset="0%" stopColor="#FFE5B4">
+                          <animate attributeName="stopColor" values="#FFE5B4;#FFB26B;#FFA552;#FF7F5C;#FF5C57;#FFBB33;#FFD369;#FF9A8B;#FFD8A9;#FF8C61;#FFE5B4" dur="3s" repeatCount="indefinite" />
                         </stop>
-                        <stop offset="100%" stop-color="#FF8C61">
-                          <animate attributeName="stop-color" values="#FF8C61;#FFE5B4;#FFB26B;#FFA552;#FF7F5C;#FF5C57;#FFBB33;#FFD369;#FF9A8B;#FFD8A9;#FF8C61" dur="3s" repeatCount="indefinite" />
+                        <stop offset="100%" stopColor="#FF8C61">
+                          <animate attributeName="stopColor" values="#FF8C61;#FFE5B4;#FFB26B;#FFA552;#FF7F5C;#FF5C57;#FFBB33;#FFD369;#FF9A8B;#FFD8A9;#FF8C61" dur="3s" repeatCount="indefinite" />
                         </stop>
                       </linearGradient>
                     </defs>

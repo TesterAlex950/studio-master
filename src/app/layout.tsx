@@ -1,10 +1,28 @@
 import type {Metadata} from 'next';
+import { Inter } from 'next/font/google';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 
+const inter = Inter({ 
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+});
+
 export const metadata: Metadata = {
-  title: 'AdVenture | PPC & Media Buying Portfolio',
+  title: 'PPC & Media Buying Portfolio',
   description: 'The personal portfolio of a beginner-level PPC and media buying intern, showcasing skills and projects.',
+  metadataBase: new URL('https://your-domain.com'),
+  openGraph: {
+    title: 'PPC & Media Buying Portfolio',
+    description: 'The personal portfolio of a beginner-level PPC and media buying intern, showcasing skills and projects.',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'PPC & Media Buying Portfolio',
+    description: 'The personal portfolio of a beginner-level PPC and media buying intern, showcasing skills and projects.',
+  },
 };
 
 export default function RootLayout({
@@ -13,12 +31,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet" />
-      </head>
+    <html lang="en" className={`dark ${inter.variable}`}>
       <body className="font-body antialiased">
         {children}
         <Toaster />

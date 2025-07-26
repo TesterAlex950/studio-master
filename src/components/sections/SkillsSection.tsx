@@ -2,10 +2,9 @@
 
 import { Card, CardContent } from "@/components/ui/card";
 import { FadeIn } from "@/components/common/FadeIn";
-import { AreaChart, GitCompareArrows, Goal, MousePointerClick, ThumbsUp, Wallet, BrainCircuit, Users, Lightbulb, Paintbrush, Globe } from "lucide-react";
+import { AreaChart, Goal, MousePointerClick, BrainCircuit, Users, Lightbulb, Paintbrush } from "lucide-react";
 import { GradientCard } from "../common/GradientCard";
 import { FlippingCard } from "../common/FlippingCard";
-import { ReactNode } from "react";
 import { useState } from "react";
 
 const hardSkills = [

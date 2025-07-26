@@ -1,6 +1,5 @@
 import { CardContent } from "@/components/ui/card";
 import { GradientCard } from "@/components/common/GradientCard";
-import { ChevronDown } from "lucide-react";
 
 export function HeroSection() {
   return (
@@ -32,29 +31,21 @@ export function HeroSection() {
               </h1>
               </div>
               <p className="mb-4 text-lg text-muted-foreground">Let me introduce myself</p>
-              <div className="absolute bottom-4">
+              <div className="absolute -bottom-2">
                 <a href="#about">
-                  <svg
-                    className="h-10 w-10 animate-chevron-gradient-svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="url(#chevron-gradient)"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <defs>
-                      <linearGradient id="chevron-gradient" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0%" stop-color="#fde68a">
-                          <animate attributeName="stop-color" values="#fde68a;#fb923c;#f472b6;#fde68a" dur="2.5s" repeatCount="indefinite" />
-                        </stop>
-                        <stop offset="100%" stop-color="#f472b6">
-                          <animate attributeName="stop-color" values="#f472b6;#fde68a;#fb923c;#f472b6" dur="2.5s" repeatCount="indefinite" />
-                        </stop>
-                      </linearGradient>
-                    </defs>
-                    <polyline points="6 9 12 15 18 9" />
-                  </svg>
+                  <div className="h-16 w-16 animate-chevron-gradient-svg flex items-center justify-center">
+                    <svg
+                      className="h-12 w-12"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <polyline points="6 9 12 15 18 9" />
+                    </svg>
+                  </div>
                 </a>
               </div>
             </CardContent>
